@@ -16,4 +16,30 @@ const getStudentById = (req, res, next) => {
   }
 };
 
-module.exports = getStudentById;
+const addNewStudent = (req, res, next) => {
+  try {
+    const { name, class_id } = req.body;
+    const sql = `Insert INTO student (name, class_id) VALUES ("${name}" , ${class_id})`;
+    client.query(sql, (err, result, fields) => {
+      if (err) throw err;
+      res.json(result);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deleteStudent = (req, res, next) => {
+  try {
+    const { student_id } = req.body;
+    const sql = `DELETE FROM student WHERE id = ${student_id}`;
+    client.query(sql, (err, result, fields) => {
+      if (err) throw err;
+      res.json(result);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = { getStudentById, addNewStudent, deleteStudent };
