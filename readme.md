@@ -1,5 +1,7 @@
 # Two days Nodejs SQL drill
 
+![ERD](./assets/ERD.png)
+
 - The task today is to develop a backend which will communicate with mysql db.
 - We will manipulate the database through server endpoints.
 - Before you approach the task, stop and think about what the different tables in the database will look like and how they will communicate with each other.
